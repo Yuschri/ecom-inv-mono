@@ -15,9 +15,9 @@ class CreateInventoryTable extends Migration
     {
         Schema::create('inventory', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('merk');
             $table->string('produk');
+            $table->timestamps();
         });
     }
 
