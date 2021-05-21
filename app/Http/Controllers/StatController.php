@@ -15,12 +15,16 @@ class StatController extends Controller
      */
     public function index()
     {
-        $stats = Inventory::selectRaw('count(merk) as total, inventory.*')
-            ->groupBy('merk')
-            ->groupBy('produk')
-            ->orderBy('total', 'desc')
+        // $stats = Inventory::selectRaw('merk, produk, count(merk) as total')
+        //     ->groupBy('merk')
+        //     ->groupBy('produk')
+        //     ->orderBy('total', 'desc')
+        //     ->get();
+
+        $stats = Inventory::query()
+            ->select(['merk', 'produk'])
             ->get();
 
-        return view('stats.index', ['stats' => $stats]);
+        return $stats;
     }
 }
