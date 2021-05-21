@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\StatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('inventories', 'InventoryController@store');
+Route::get('inventories', [InventoryController::class, 'store']);
 
-Route::get('stats', 'StatsController@index');
+Route::get('stats', [StatController::class, 'index']);
